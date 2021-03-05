@@ -78,7 +78,16 @@
   			<input type="submit"  name="action" value="calculate">
    		</td>
 	</tr>	
-
+	<tr>
+   		<td>
+  		</td>
+  		<td>
+  			Result  
+  		</td>
+  		<td>
+  			<% out.println("JUKKA"); %>
+   		</td>
+	</tr>	
 
 </form>
 </table>
