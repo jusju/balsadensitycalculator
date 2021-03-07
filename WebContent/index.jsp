@@ -64,16 +64,7 @@
   			<input type="number"  name="width">
    		</td>
 	</tr>	
-	<tr>
-   		<td>
-  		</td>
-  		<td>
-  			Weight  
-  		</td>
-  		<td>
-  			<input type="number"  name="weight">
-   		</td>
-	</tr>	
+
 	<tr>
    		<td>
   		</td>
