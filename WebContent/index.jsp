@@ -1,12 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Balsa Density Calculator</title>
+<title>Balsa density calculator</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body>
+<style>
+
+#content {
+    position: relative;
+}
+#content img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
+</style>
+	<div id="content">
+    	<img src="images/sil-tunnus-sininen.jpg" width="100" height="100" class="ribbon"/>
+    </div>
+
+
+<h1>Balsa Density Calculator</h1>
 <table border="1">
 <form action="Controller">
   	<th>
