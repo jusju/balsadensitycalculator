@@ -46,6 +46,9 @@ public class Controller extends HttpServlet {
 			double width = Double.parseDouble(stringWidth);
 			double weight = Double.parseDouble(stringWeight);
 
+			double volume = thickness * (length*10.0) * (width*10.0);
+			System.out.println("VOLUME: " + volume);
+			
 			Connection conn = null;
 			try {
 				Class.forName("org.sqlite.JDBC");
