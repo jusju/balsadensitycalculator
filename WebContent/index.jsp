@@ -82,7 +82,8 @@
   			  
   		</td>
   		<td>
-  			<input type="submit"  name="action" value="calculate">
+  			<input type="submit"  name="action" value="Calculate">
+  			<input type="submit"  name="action" value="I am Feeling Lucky">
    		</td>
 	</tr>	
 	<tr>

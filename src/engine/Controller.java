@@ -33,23 +33,20 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		if (request.getParameter("action") != null && request.getParameter("action").equals("calculate")) {
+		if (request.getParameter("action") != null && request.getParameter("action").equals("Calculate")) {
+			System.out.println("KONTROLLERISSA");
 
-			String timeString = LocalTime.now().toString();
-
-			// lähetä merkkijono JSP sivulle attribuuttina
-			request.setAttribute("timeNow", timeString);
+			
 
 			Connection conn = null;
 			try {
-				// db parameters
-				String url = "jdbc:sqlite:balsa.db";
+				Class.forName("org.sqlite.JDBC");
 				// create a connection to the database
-				conn = DriverManager.getConnection(url);
+				conn = DriverManager.getConnection("jdbc:sqlite:./balsa.db");
 
 				System.out.println("Yhteys SQL kantaan saatu.");
 
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			} finally {
 				try {
