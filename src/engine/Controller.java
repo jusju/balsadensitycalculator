@@ -36,7 +36,15 @@ public class Controller extends HttpServlet {
 		if (request.getParameter("action") != null && request.getParameter("action").equals("Calculate")) {
 			System.out.println("KONTROLLERISSA");
 
-			
+			String stringThickness = request.getParameter("thickness");
+			String stringLength = request.getParameter("length");
+			String stringWidth = request.getParameter("width");
+			String stringWeight = request.getParameter("weight");
+
+			double thickness = Double.parseDouble(stringThickness);
+			double length = Double.parseDouble(stringLength);
+			double width = Double.parseDouble(stringWidth);
+			double weight = Double.parseDouble(stringWeight);
 
 			Connection conn = null;
 			try {
@@ -46,6 +54,8 @@ public class Controller extends HttpServlet {
 
 				System.out.println("Yhteys SQL kantaan saatu.");
 
+				conn.close();
+				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			} finally {
