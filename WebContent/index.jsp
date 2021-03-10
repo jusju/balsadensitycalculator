@@ -22,14 +22,14 @@
     </div>
 
 
-<h1>Balsa Density Calculator</h1>
+<h1>Balsan tiheyslaskuri</h1>
 <table border="1">
 <form action="Controller">
   	<th>
    		<td>
   		</td>
   		<td>
-  			Value  
+  			Arvo  
   		</td>
   		<td>
    		</td>
@@ -38,7 +38,7 @@
    		<td>
   		</td>
   		<td>
-  			Thickness (mm)  
+  			Paksuus (mm)  
   		</td>
   		<td>
   		  	<input type="number"  name="thickness"
@@ -56,7 +56,7 @@
    		<td>
   		</td>
   		<td>
-  			Length (cm)  
+  			Pituus (cm)  
   		</td>
   		<td>
   		  	<input type="number"  name="length"
@@ -74,7 +74,7 @@
    		<td>
   		</td>
   		<td>
-  			Width (cm)  
+  			Leveys (cm)  
   		</td>
   		<td>
   			<input type="number"  name="width"			
@@ -92,7 +92,7 @@
    		<td>
   		</td>
   		<td>
-  			Weight (g)
+  			Paino (g)
   		</td>
   		<td>
   			<input type="number"  name="weight"
@@ -113,7 +113,7 @@
   			  
   		</td>
   		<td>
-  			<input type="submit"  name="action" value="Calculate">
+  			<input type="submit"  name="action" value="Laske">
   			<input type="submit"  name="action" value="I am Feeling Lucky">
    		</td>
 	</tr>	
