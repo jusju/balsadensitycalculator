@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.time.LocalTime;
 
 /**
@@ -47,8 +48,10 @@ public class Controller extends HttpServlet {
 			double weight = Double.parseDouble(stringWeight);
 
 			double volume = thickness * (length*10.0) * (width*10.0);
-			System.out.println("VOLUME: " + volume);
-			
+			double density =  (weight/1000.0) / (volume/1000000000.0);
+			DecimalFormat decimal = new DecimalFormat("0.00");
+			System.out.println("DENSITY: " + density);
+			request.setAttribute("density", "" + decimal.format(density));
 			Connection conn = null;
 			try {
 				Class.forName("org.sqlite.JDBC");
@@ -72,7 +75,7 @@ public class Controller extends HttpServlet {
 			}
 
 			// forward the request to the index.jsp page
-			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 
 		}
 	}

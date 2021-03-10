@@ -69,7 +69,7 @@
    		<td>
   		</td>
   		<td>
-  			Weight  
+  			Weight (g)
   		</td>
   		<td>
   			<input type="number"  name="weight">
@@ -93,7 +93,12 @@
   			Result  
   		</td>
   		<td>
-  			<% out.println("JUKKA"); %>
+  			<% 
+  			
+  			out.println(request.getAttribute("density")); 
+  			
+  			
+  			%> kg/m3
    		</td>
 	</tr>	
 
