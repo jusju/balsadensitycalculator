@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Balsa density calculator</title>
+<title>Balsan tiheyslaskuri</title>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body>
@@ -41,7 +41,15 @@
   			Thickness (mm)  
   		</td>
   		<td>
-  		  	<input type="number"  name="thickness">
+  		  	<input type="number"  name="thickness"
+  		  	
+  		  	<% 
+  		  	if(request.getAttribute("thickness") != null) {
+  		  		out.println(" value=\""+ request.getAttribute("thickness") + "\"");
+  		  	}
+  		  	%>
+  		  	
+  		  	>
    		</td>
 	</tr>
 	<tr>
@@ -51,7 +59,15 @@
   			Length (cm)  
   		</td>
   		<td>
-  		  	<input type="number"  name="length">
+  		  	<input type="number"  name="length"
+  		  	
+  		  	<% 
+  		  	if(request.getAttribute("length") != null) {
+  		  		out.println(" value=\""+ request.getAttribute("length") + "\"");
+  		  	}
+  		  	%>
+  		  	
+  		  	>
    		</td>
 	</tr>
 	<tr>
@@ -61,7 +77,14 @@
   			Width (cm)  
   		</td>
   		<td>
-  			<input type="number"  name="width">
+  			<input type="number"  name="width"			
+  		  	<% 
+  		  	if(request.getAttribute("width") != null) {
+  		  		out.println(" value=\""+ request.getAttribute("width") + "\"");
+  		  	}
+  		  	%>
+  			
+  			>
    		</td>
 	</tr>	
 
@@ -72,7 +95,15 @@
   			Weight (g)
   		</td>
   		<td>
-  			<input type="number"  name="weight">
+  			<input type="number"  name="weight"
+  			<% 
+  		  	if(request.getAttribute("weight") != null) {
+  		  		out.println(" value=\""+ request.getAttribute("weight") + "\"");
+  		  	}
+  		  	%>
+  			
+  			
+  			>
    		</td>
 	</tr>		
 	<tr>

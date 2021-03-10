@@ -42,6 +42,11 @@ public class Controller extends HttpServlet {
 			String stringWidth = request.getParameter("width");
 			String stringWeight = request.getParameter("weight");
 
+			request.setAttribute("thickness", stringThickness);
+			request.setAttribute("length", stringLength);
+			request.setAttribute("width", stringWidth);
+			request.setAttribute("weight", stringWeight);
+			
 			double thickness = Double.parseDouble(stringThickness);
 			double length = Double.parseDouble(stringLength);
 			double width = Double.parseDouble(stringWidth);
