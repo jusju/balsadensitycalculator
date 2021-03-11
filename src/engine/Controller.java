@@ -103,7 +103,8 @@ public class Controller extends HttpServlet {
 			// forward the request to the index.jsp page
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 
-		} else if (request.getParameter("action") != null && request.getParameter("action").equals("I am Feeling Lucky")) {
+		} else if (request.getParameter("action") != null && 
+				request.getParameter("action").equals("I am Feeling Lucky")) {
 			System.out.println("KONTROLLERISSA");
 
 			String stringThickness = request.getParameter("thickness");

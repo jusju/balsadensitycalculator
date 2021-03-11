@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.text.DecimalFormat" %>
 <html>
 <head>
 <title>Balsan tiheyslaskuri</title>
@@ -121,7 +125,7 @@
    		<td>
   		</td>
   		<td>
-  			Tulos  
+  			Tulos (kg/m3) 
   		</td>
   		<td>
   			<% 
@@ -132,7 +136,27 @@
   			%> kg/m3
    		</td>
 	</tr>	
-
+	<tr>
+   		<td>
+  		</td>
+  		<td>
+  			Tulos (lb/ft3) 
+  		</td>
+  		<td>
+  			<% 
+  			if(request.getAttribute("density") != null) {
+  				String teksti = request.getAttribute("density") +"";
+  				String[] solut = teksti.split(",");
+  				String densityString = solut[0] + "." + solut[1];
+  				double density = Double.parseDouble(densityString);
+  				density = density * 0.062427961;
+  				DecimalFormat desi = new DecimalFormat("0.00");
+  				out.println(desi.format(density)); 
+  			}
+  			
+  			%> lb/ft3
+   		</td>
+	</tr>	
 </form>
 </table>
 

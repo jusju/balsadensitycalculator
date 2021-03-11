@@ -87,6 +87,14 @@ public class JukkaController extends HttpServlet {
 
 				System.out.println("Yhteys SQL kantaan saatu.");
 
+				Statement statement = conn.createStatement();
+				statement.executeQuery("SELECT * FROM Balsalevy");
+				ResultSet resultset = statement.executeQuery("SELECT * FROM Balsalevy");
+				while(resultset.next()) {
+					int id = (int)resultset.getDouble("id");
+					double tiheys = (double)resultset.getDouble("tiheys");
+				}
+				
 				conn.close();
 				
 			} catch (Exception e) {

@@ -7,6 +7,7 @@ public class Balsalevy {
 	private double paksuus;
 	private double paino;
 	
+	
 	public Balsalevy() {
 		super();
 	}
