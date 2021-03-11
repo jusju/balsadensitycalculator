@@ -75,7 +75,11 @@ public class Controller extends HttpServlet {
 
 			double volume = thickness * length * width;
 			double density =  (weight/1000.0) / (volume/1000000000.0);
+			
 			DecimalFormat decimal = new DecimalFormat("0.00");
+
+			request.setAttribute("densityft", "" + decimal.format(density*0.062427961));
+
 			System.out.println("DENSITY: " + density);
 			request.setAttribute("density", "" + decimal.format(density));
 			Connection conn = null;

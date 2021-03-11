@@ -4,6 +4,7 @@
 <%@ page import="java.text.DecimalFormat" %>
 <html>
 <head>
+<link rel="shortcut icon" type="image/png" href="favicon.png">
 <title>Balsan tiheyslaskuri</title>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
@@ -130,10 +131,10 @@
   		<td>
   			<% 
   			if(request.getAttribute("density") != null) {
-  				out.println(request.getAttribute("density")); 
+  				out.println("<b>" + request.getAttribute("density") + "</b>"); 
   			}
   			
-  			%> kg/m3
+  			%> kg/m3 
    		</td>
 	</tr>	
 	<tr>
@@ -144,14 +145,8 @@
   		</td>
   		<td>
   			<% 
-  			if(request.getAttribute("density") != null) {
-  				String teksti = request.getAttribute("density") +"";
-  				String[] solut = teksti.split(",");
-  				String densityString = solut[0] + "." + solut[1];
-  				double density = Double.parseDouble(densityString);
-  				density = density * 0.062427961;
-  				DecimalFormat desi = new DecimalFormat("0.00");
-  				out.println(desi.format(density)); 
+  			if(request.getAttribute("densityft") != null) {
+  				out.println("<b>" + request.getAttribute("densityft") + "</b>"); 
   			}
   			
   			%> lb/ft3
