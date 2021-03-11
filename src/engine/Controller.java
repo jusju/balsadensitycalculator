@@ -47,12 +47,16 @@ public class Controller extends HttpServlet {
 			request.setAttribute("width", stringWidth);
 			request.setAttribute("weight", stringWeight);
 			
+			if(stringThickness.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+			}
+			
 			double thickness = Double.parseDouble(stringThickness);
 			double length = Double.parseDouble(stringLength);
 			double width = Double.parseDouble(stringWidth);
 			double weight = Double.parseDouble(stringWeight);
 
-			double volume = thickness * (length*10.0) * (width*10.0);
+			double volume = thickness * length * width;
 			double density =  (weight/1000.0) / (volume/1000000000.0);
 			DecimalFormat decimal = new DecimalFormat("0.00");
 			System.out.println("DENSITY: " + density);

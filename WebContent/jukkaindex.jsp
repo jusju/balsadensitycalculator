@@ -24,7 +24,7 @@
 
 <h1>Balsan tiheyslaskuri</h1>
 <table border="1">
-<form action="Controller">
+<form action="JukkaController">
   	<th>
    		<td>
   		</td>
@@ -132,6 +132,33 @@
   			%> kg/m3
    		</td>
 	</tr>	
+		<tr>
+   		<td>
+  		</td>
+  		<td>
+  			  
+  		</td>
+  		<td>
+
+   		</td>
+	</tr>	
+		<tr>
+   		<td>
+  		</td>
+  		<td>
+  			  
+  		</td>
+  		<td>
+  			<% 
+  			
+  			out.println("POISTA"); 
+  			
+  			
+  			%> kg/m3
+   		</td>
+	</tr>	
+	
+	
 
 </form>
 </table>
