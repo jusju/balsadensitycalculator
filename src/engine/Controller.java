@@ -34,7 +34,7 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		if (request.getParameter("action") != null && request.getParameter("action").equals("Calculate")) {
+		if (request.getParameter("action") != null && request.getParameter("action").equals("Laske")) {
 			System.out.println("KONTROLLERISSA");
 
 			String stringThickness = request.getParameter("thickness");
@@ -49,6 +49,23 @@ public class Controller extends HttpServlet {
 			
 			if(stringThickness.contains(",")) {
 				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringThickness.split(",");
+				stringThickness = solut[0] + "." + solut[1];
+			}
+			if(stringLength.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringLength.split(",");
+				stringLength = solut[0] + "." + solut[1];
+			}
+			if(stringWidth.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringWidth.split(",");
+				stringWidth = solut[0] + "." + solut[1];
+			}
+			if(stringWeight.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringWeight.split(",");
+				stringWeight = solut[0] + "." + solut[1];
 			}
 			
 			double thickness = Double.parseDouble(stringThickness);
