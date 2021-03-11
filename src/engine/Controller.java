@@ -33,7 +33,7 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		if (request.getParameter("action") != null && request.getParameter("action").equals("Laske")) {
 			System.out.println("KONTROLLERISSA");
 
@@ -103,7 +103,25 @@ public class Controller extends HttpServlet {
 			// forward the request to the index.jsp page
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 
+		} else if (request.getParameter("action") != null && request.getParameter("action").equals("I am Feeling Lucky")) {
+			System.out.println("KONTROLLERISSA");
+
+			String stringThickness = request.getParameter("thickness");
+			String stringLength = request.getParameter("length");
+			String stringWidth = request.getParameter("width");
+			String stringWeight = request.getParameter("weight");
+
+			request.setAttribute("thickness", stringThickness);
+			request.setAttribute("length", stringLength);
+			request.setAttribute("width", stringWidth);
+			request.setAttribute("weight", stringWeight);
+		
+			request.getRequestDispatcher("tunnistaudu.jsp").forward(request, response);
+		
 		}
+		
+		
+		
 	}
 
 	/**

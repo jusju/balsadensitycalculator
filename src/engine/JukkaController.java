@@ -33,9 +33,10 @@ public class JukkaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		if (request.getParameter("action") != null && request.getParameter("action").equals("Calculate")) {
-			System.out.println("KONTROLLERISSA");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		if (request.getParameter("action") != null && 
+				request.getParameter("action").equals("Calculate") &&
+				request.getParameter("salasana").equals("42")) {
 
 			String stringThickness = request.getParameter("thickness");
 			String stringLength = request.getParameter("length");
@@ -47,12 +48,33 @@ public class JukkaController extends HttpServlet {
 			request.setAttribute("width", stringWidth);
 			request.setAttribute("weight", stringWeight);
 			
+			if(stringThickness.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringThickness.split(",");
+				stringThickness = solut[0] + "." + solut[1];
+			}
+			if(stringLength.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringLength.split(",");
+				stringLength = solut[0] + "." + solut[1];
+			}
+			if(stringWidth.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringWidth.split(",");
+				stringWidth = solut[0] + "." + solut[1];
+			}
+			if(stringWeight.contains(",")) {
+				System.out.println("NO SIELLA OLI PILKKU!!!");
+				String[] solut = stringWeight.split(",");
+				stringWeight = solut[0] + "." + solut[1];
+			}
+			
 			double thickness = Double.parseDouble(stringThickness);
 			double length = Double.parseDouble(stringLength);
 			double width = Double.parseDouble(stringWidth);
 			double weight = Double.parseDouble(stringWeight);
 
-			double volume = thickness * (length*10.0) * (width*10.0);
+			double volume = thickness * length * width;
 			double density =  (weight/1000.0) / (volume/1000000000.0);
 			DecimalFormat decimal = new DecimalFormat("0.00");
 			System.out.println("DENSITY: " + density);
@@ -80,7 +102,8 @@ public class JukkaController extends HttpServlet {
 			}
 
 			// forward the request to the index.jsp page
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("jukkaindex.jsp").forward(request, response);
+
 
 		}
 	}

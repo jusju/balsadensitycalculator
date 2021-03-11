@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page errorPage="virhe.jsp"%>
+<%@ page import="java.util.ArrayList" %>
+
 <html>
 <head>
 <title>Balsan tiheyslaskuri</title>
@@ -24,7 +30,7 @@
 
 <h1>Balsan tiheyslaskuri</h1>
 <table border="1">
-<form action="JukkaController">
+<form action="Controller">
   	<th>
    		<td>
   		</td>
@@ -41,7 +47,7 @@
   			Paksuus (mm)  
   		</td>
   		<td>
-  		  	<input type="number"  name="thickness"
+  		  	<input type="text"  name="thickness"
   		  	
   		  	<% 
   		  	if(request.getAttribute("thickness") != null) {
@@ -56,10 +62,10 @@
    		<td>
   		</td>
   		<td>
-  			Pituus (cm)  
+  			Pituus (mm)  
   		</td>
   		<td>
-  		  	<input type="number"  name="length"
+  		  	<input type="text"  name="length"
   		  	
   		  	<% 
   		  	if(request.getAttribute("length") != null) {
@@ -74,10 +80,10 @@
    		<td>
   		</td>
   		<td>
-  			Leveys (cm)  
+  			Leveys (mm)  
   		</td>
   		<td>
-  			<input type="number"  name="width"			
+  			<input type="text"  name="width"			
   		  	<% 
   		  	if(request.getAttribute("width") != null) {
   		  		out.println(" value=\""+ request.getAttribute("width") + "\"");
@@ -95,7 +101,7 @@
   			Paino (g)
   		</td>
   		<td>
-  			<input type="number"  name="weight"
+  			<input type="text"  name="weight"
   			<% 
   		  	if(request.getAttribute("weight") != null) {
   		  		out.println(" value=\""+ request.getAttribute("weight") + "\"");
@@ -113,52 +119,31 @@
   			  
   		</td>
   		<td>
-  			<input type="submit"  name="action" value="Laske">
-  			<input type="submit"  name="action" value="I am Feeling Lucky">
+  			<input type="submit" class="btn btn-success" name="action" value="Laske">
+  			<input type="submit" class="btn btn-success" name="action" value="I am Feeling Lucky">
    		</td>
 	</tr>	
 	<tr>
    		<td>
   		</td>
   		<td>
-  			Result  
+  			Tulos  
   		</td>
   		<td>
   			<% 
-  			
-  			out.println(request.getAttribute("density")); 
-  			
-  			
-  			%> kg/m3
-   		</td>
-	</tr>	
-		<tr>
-   		<td>
-  		</td>
-  		<td>
-  			  
-  		</td>
-  		<td>
-
-   		</td>
-	</tr>	
-		<tr>
-   		<td>
-  		</td>
-  		<td>
-  			  
-  		</td>
-  		<td>
-  			<% 
-  			
-  			out.println("POISTA"); 
-  			
+  			if(request.getAttribute("density") != null) {
+  				out.println(request.getAttribute("density")); 
+  			}
   			
   			%> kg/m3
    		</td>
-	</tr>	
+	</tr>
+	<%
 	
 	
+	
+	%>
+		
 
 </form>
 </table>

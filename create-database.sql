@@ -1,8 +1,8 @@
-CREATE TABLE balsa (
+CREATE TABLE Balsalevy (
    id INTEGER PRIMARY KEY AUTOINCREMENT,
-   tiheys double NOT NULL,
-   korkeus double NOT NULL,
-   leveys double NOT NULL,
-   paino double NOT NULL,
-   pituus double NOT NULL
+   tiheys DOUBLE NOT NULL,
+   korkeus DOUBLE NOT NULL,
+   leveys DOUBLE NOT NULL,
+   paino DOUBLE NOT NULL,
+   pituus DOUBLE NOT NULL
 );
