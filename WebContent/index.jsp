@@ -121,7 +121,7 @@
    		<td>
   		</td>
   		<td>
-  			Result  
+  			Tulos  
   		</td>
   		<td>
   			<% 
