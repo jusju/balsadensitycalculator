@@ -25,10 +25,14 @@
 	<table border="1">
 		<form action="JukkaController">
 
-			<input type="hidden" name="thickness"> 
-			<input type="hidden" name="length"> 
-			<input type="hidden" name="width"> 
-			<input type="hidden" name="weight">
+			<input type="hidden" name="thickness"
+			value="<%out.println(request.getParameter("thickness"));%>"> 
+			<input type="hidden" name="length" 
+			value="<%out.println(request.getParameter("length"));%>"> 
+			<input type="hidden" name="width"
+			value="<%out.println(request.getParameter("width"));%>"> 
+			<input type="hidden" name="weight"
+			value="<%out.println(request.getParameter("weight"));%>">
 
 			<th>
 			<td></td>

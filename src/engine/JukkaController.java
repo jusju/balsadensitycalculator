@@ -35,7 +35,7 @@ public class JukkaController extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		if (request.getParameter("action") != null && 
-				request.getParameter("action").equals("Calculate") &&
+				request.getParameter("action").equals("Laske") &&
 				request.getParameter("salasana").equals("42")) {
 
 			String stringThickness = request.getParameter("thickness");
