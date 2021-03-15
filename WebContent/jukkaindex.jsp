@@ -3,6 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page errorPage="virhe.jsp"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="engine.Balsalevy" %>
 
 <html>
 <head>
@@ -30,7 +31,7 @@
 
 <h1>Balsan tiheyslaskuri</h1>
 <table border="1">
-<form action="Controller">
+<form action="JukkaController">
   	<th>
    		<td>
   		</td>
@@ -120,7 +121,6 @@
   		</td>
   		<td>
   			<input type="submit" class="btn btn-success" name="action" value="Laske">
-  			<input type="submit" class="btn btn-success" name="action" value="I am Feeling Lucky">
    		</td>
 	</tr>	
 	<tr>
@@ -139,7 +139,11 @@
    		</td>
 	</tr>
 	<%
-	
+	ArrayList balsat = new ArrayList();
+	for(int i=0; i < balsat.size(); i++) {
+		Balsalevy balsalevy = (Balsalevy)balsat.get(i);
+		out.println(balsalevy.getLeveys());
+	}
 	
 	
 	%>

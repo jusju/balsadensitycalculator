@@ -33,10 +33,25 @@ public class JukkaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		if (request.getParameter("action") != null && 
-				request.getParameter("action").equals("Laske") &&
-				request.getParameter("salasana").equals("42")) {
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		if (request.getParameter("action") != null && request.getParameter("action").equals("Laske")
+				&& request.getParameter("salasana").equals("42")) {
+			System.out.println("VAIN AUTENTIKAATIO ONNISTUI!!!!");
+			String stringThickness = request.getParameter("thickness");
+			String stringLength = request.getParameter("length");
+			String stringWidth = request.getParameter("width");
+			String stringWeight = request.getParameter("weight");
+
+			request.setAttribute("thickness", stringThickness);
+			request.setAttribute("length", stringLength);
+			request.setAttribute("width", stringWidth);
+			request.setAttribute("weight", stringWeight);
+
+			// forward the request to the index.jsp page
+			request.getRequestDispatcher("jukkaindex.jsp").forward(request, response);
+
+		} else if (request.getParameter("action") != null && request.getParameter("action").equals("Laske")) {
+			System.out.println("TEHDÄÄN LASKUA!!!!");
 
 			String stringThickness = request.getParameter("thickness");
 			String stringLength = request.getParameter("length");
@@ -47,35 +62,35 @@ public class JukkaController extends HttpServlet {
 			request.setAttribute("length", stringLength);
 			request.setAttribute("width", stringWidth);
 			request.setAttribute("weight", stringWeight);
-			
-			if(stringThickness.contains(",")) {
+
+			if (stringThickness.contains(",")) {
 				System.out.println("NO SIELLA OLI PILKKU!!!");
 				String[] solut = stringThickness.split(",");
 				stringThickness = solut[0] + "." + solut[1];
 			}
-			if(stringLength.contains(",")) {
+			if (stringLength.contains(",")) {
 				System.out.println("NO SIELLA OLI PILKKU!!!");
 				String[] solut = stringLength.split(",");
 				stringLength = solut[0] + "." + solut[1];
 			}
-			if(stringWidth.contains(",")) {
+			if (stringWidth.contains(",")) {
 				System.out.println("NO SIELLA OLI PILKKU!!!");
 				String[] solut = stringWidth.split(",");
 				stringWidth = solut[0] + "." + solut[1];
 			}
-			if(stringWeight.contains(",")) {
+			if (stringWeight.contains(",")) {
 				System.out.println("NO SIELLA OLI PILKKU!!!");
 				String[] solut = stringWeight.split(",");
 				stringWeight = solut[0] + "." + solut[1];
 			}
-			
+
 			double thickness = Double.parseDouble(stringThickness);
 			double length = Double.parseDouble(stringLength);
 			double width = Double.parseDouble(stringWidth);
 			double weight = Double.parseDouble(stringWeight);
 
 			double volume = thickness * length * width;
-			double density =  (weight/1000.0) / (volume/1000000000.0);
+			double density = (weight / 1000.0) / (volume / 1000000000.0);
 			DecimalFormat decimal = new DecimalFormat("0.00");
 			System.out.println("DENSITY: " + density);
 			request.setAttribute("density", "" + decimal.format(density));
@@ -90,13 +105,18 @@ public class JukkaController extends HttpServlet {
 				Statement statement = conn.createStatement();
 				statement.executeQuery("SELECT * FROM Balsalevy");
 				ResultSet resultset = statement.executeQuery("SELECT * FROM Balsalevy");
-				while(resultset.next()) {
-					int id = (int)resultset.getDouble("id");
-					double tiheys = (double)resultset.getDouble("tiheys");
+				while (resultset.next()) {
+					int id = (int) resultset.getDouble("id");
+					double tiheys = (double) resultset.getDouble("tiheys");
+					double korkeus = (double) resultset.getDouble("korkeus");
+					double leveys = (double) resultset.getDouble("leveys");
+					double paino = (double) resultset.getDouble("paino");
+					double pituus = (double) resultset.getDouble("pituus");
+					String grain = resultset.getDouble("grain") + "";
 				}
-				
+
 				conn.close();
-				
+
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			} finally {
@@ -111,7 +131,6 @@ public class JukkaController extends HttpServlet {
 
 			// forward the request to the index.jsp page
 			request.getRequestDispatcher("jukkaindex.jsp").forward(request, response);
-
 
 		}
 	}
