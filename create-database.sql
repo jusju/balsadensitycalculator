@@ -5,5 +5,6 @@ CREATE TABLE Balsalevy (
    korkeus DOUBLE NOT NULL,
    leveys DOUBLE NOT NULL,
    paino DOUBLE NOT NULL,
-   pituus DOUBLE NOT NULL
+   pituus DOUBLE NOT NULL,
+   grain TEXT NOT NULL
 );
