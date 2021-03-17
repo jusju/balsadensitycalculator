@@ -119,7 +119,7 @@
    		<td>
   		</td>
   		<td>
-  			Grain (g)
+  			Grain 
   		</td>
   		<td>
   			<input type="text"  name="grain"
