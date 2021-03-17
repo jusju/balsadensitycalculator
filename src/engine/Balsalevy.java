@@ -6,19 +6,22 @@ public class Balsalevy {
 	private double leveys;
 	private double paksuus;
 	private double paino;
-	
-	
+	private double tiheys;
+	private String grain;
+
 	public Balsalevy() {
 		super();
 	}
 
-	public Balsalevy(int id, double pituus, double leveys, double paksuus, double paino) {
+	public Balsalevy(int id, double pituus, double leveys, double paksuus, double paino, double tiheys, String grain) {
 		super();
 		this.id = id;
 		this.pituus = pituus;
 		this.leveys = leveys;
 		this.paksuus = paksuus;
 		this.paino = paino;
+		this.tiheys = tiheys;
+		this.grain = grain;
 	}
 
 	public int getId() {
@@ -59,6 +62,22 @@ public class Balsalevy {
 
 	public void setPaino(double paino) {
 		this.paino = paino;
+	}
+
+	public double getTiheys() {
+		return tiheys;
+	}
+
+	public void setTiheys(double tiheys) {
+		this.tiheys = tiheys;
+	}
+
+	public String getGrain() {
+		return grain;
+	}
+
+	public void setGrain(String grain) {
+		this.grain = grain;
 	}
 
 	@Override

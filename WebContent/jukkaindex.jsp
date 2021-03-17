@@ -114,6 +114,29 @@
    		</td>
 	</tr>		
 	<tr>
+	
+		<tr>
+   		<td>
+  		</td>
+  		<td>
+  			Grain (g)
+  		</td>
+  		<td>
+  			<input type="text"  name="grain"
+  			<% 
+  		  	if(request.getAttribute("grain") != null) {
+  		  		out.println(" value=\""+ request.getAttribute("grain") + "\"");
+  		  	}
+  		  	%>
+  			
+  			
+  			>
+   		</td>
+	</tr>		
+	<tr>
+	
+	
+	
    		<td>
   		</td>
   		<td>
@@ -138,19 +161,50 @@
   			%> kg/m3
    		</td>
 	</tr>
-	<%
-	ArrayList balsat = new ArrayList();
-	for(int i=0; i < balsat.size(); i++) {
-		Balsalevy balsalevy = (Balsalevy)balsat.get(i);
-		out.println(balsalevy.getLeveys());
-	}
 	
-	
-	%>
+
 		
 
 </form>
 </table>
+<br>
+<br>
+<%
+ArrayList<Balsalevy> balsat = new ArrayList<Balsalevy>();
+balsat = (ArrayList<Balsalevy>)request.getAttribute("balsat");
+%>
+
+<table border="1">
+<tr>
+<td>ID</td>
+<td>tiheys</td>
+<td>grain</td>
+<td>paksuus</td>
+<td>leveys</td>
+<td>pituus</td>
+<td>DELETE</td>
+</tr>
+
+<% 
+for(int i=0; i < balsat.size(); i++) {
+	out.println("<tr>");
+	Balsalevy balsalevy = (Balsalevy)balsat.get(i);
+	out.println("<td>" + balsalevy.getId() + "</td>");
+	out.println("<td>" + balsalevy.getTiheys() + "</td>");
+	out.println("<td>" + balsalevy.getGrain() + "</td>");
+	out.println("<td>" + balsalevy.getPaksuus() + "</td>");
+	out.println("<td>" + balsalevy.getLeveys() + "</td>");
+	out.println("<td>" + balsalevy.getPituus() + "</td>");
+	out.println("<td><a href=\"JukkaController?deleteid=" + balsalevy.getId()  + "\">DELETE</a></td>");
+	out.println("</tr>");
+	
+}
+%>
+
+</table>
+
+
+
 
 
 </body>

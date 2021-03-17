@@ -86,7 +86,7 @@ public class Controller extends HttpServlet {
 			try {
 				Class.forName("org.sqlite.JDBC");
 				// create a connection to the database
-				conn = DriverManager.getConnection("jdbc:sqlite:./balsa.db");
+				conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\jusju\\git\\balsadensitycalculator\\balsa.db");
 
 				System.out.println("Yhteys SQL kantaan saatu.");
 
