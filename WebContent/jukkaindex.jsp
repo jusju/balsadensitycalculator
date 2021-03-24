@@ -3,8 +3,9 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page errorPage="virhe.jsp"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ page import="engine.Balsalevy" %>
-
+<%@ page import="dao.BalsalevyDAO" %>
 <html>
 <head>
 <title>Balsan tiheyslaskuri</title>
@@ -171,7 +172,11 @@
 <br>
 <%
 ArrayList<Balsalevy> balsat = new ArrayList<Balsalevy>();
-balsat = (ArrayList<Balsalevy>)request.getAttribute("balsat");
+BalsalevyDAO dao = new BalsalevyDAO();
+balsat = dao.haeBalsat();
+
+
+
 %>
 
 <table border="1">
@@ -186,15 +191,16 @@ balsat = (ArrayList<Balsalevy>)request.getAttribute("balsat");
 </tr>
 
 <% 
+DecimalFormat desimaalit = new DecimalFormat("0.00");
 for(int i=0; i < balsat.size(); i++) {
 	out.println("<tr>");
 	Balsalevy balsalevy = (Balsalevy)balsat.get(i);
 	out.println("<td>" + balsalevy.getId() + "</td>");
-	out.println("<td>" + balsalevy.getTiheys() + "</td>");
+	out.println("<td>" + desimaalit.format(balsalevy.getTiheys()) + "</td>");
 	out.println("<td>" + balsalevy.getGrain() + "</td>");
-	out.println("<td>" + balsalevy.getPaksuus() + "</td>");
-	out.println("<td>" + balsalevy.getLeveys() + "</td>");
-	out.println("<td>" + balsalevy.getPituus() + "</td>");
+	out.println("<td>" + desimaalit.format(balsalevy.getPaksuus()) + "</td>");
+	out.println("<td>" + desimaalit.format(balsalevy.getLeveys()) + "</td>");
+	out.println("<td>" + desimaalit.format(balsalevy.getPituus()) + "</td>");
 	out.println("<td><a href=\"JukkaController?deleteid=" + balsalevy.getId()  + "\">DELETE</a></td>");
 	out.println("</tr>");
 	

@@ -15,25 +15,25 @@ import java.text.DecimalFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-/**
- * Servlet implementation class Controller
- */
+
 @WebServlet("/JukkaController")
 public class JukkaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public JukkaController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
+	protected void teeAutentikaatio(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+	}
+	protected void laskeBalsaGrainilla(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("JUKKA" + request.getParameter("deleteid"));
@@ -186,6 +186,7 @@ public class JukkaController extends HttpServlet {
 					System.out.println(ex.getMessage());
 				}
 			}
+			//request.setAttribute("balsat", levyt);
 
 			// forward the request to the index.jsp page
 			request.getRequestDispatcher("jukkaindex.jsp").forward(request, response);
