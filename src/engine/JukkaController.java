@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BalsalevyDAO;
+
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.time.LocalTime;
@@ -135,58 +137,10 @@ public class JukkaController extends HttpServlet {
 
 			request.setAttribute("density", "" + decimal.format(density));
 			
-			try {
-
-				String URL = "jdbc:sqlite:/var/lib/tomcat8/webapps/balsalaskin/balsa.db";
-
-				Class.forName("org.sqlite.JDBC");
-				Connection connection = DriverManager.getConnection(URL);
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM Balsalevy");
-				ResultSet resultset = statement.executeQuery();
-				ArrayList<Balsalevy> levyt = new ArrayList<Balsalevy>();
-
-				while (resultset.next()) {
-					Balsalevy balsalevy = new Balsalevy();
-					int id = (int) resultset.getDouble("id");
-					System.out.println("ID " + id);
-					balsalevy.setId(id);
-					double tiheys = (double) resultset.getDouble("tiheys");
-					System.out.println("TIHEYS " + tiheys);
-					balsalevy.setTiheys(tiheys);
-					double korkeus = (double) resultset.getDouble("korkeus");
-					System.out.println("korkeus " + korkeus);
-					balsalevy.setPaksuus(korkeus);
-					double leveys = (double) resultset.getDouble("leveys");
-					System.out.println("leveys " + leveys);
-					balsalevy.setLeveys(leveys);
-					double paino = (double) resultset.getDouble("paino");
-					System.out.println("paino " + paino);
-					balsalevy.setPaino(paino);
-					double pituus = (double) resultset.getDouble("pituus");
-					System.out.println("pituus " + pituus);
-					balsalevy.setPituus(pituus);
-					String grain = resultset.getString("grain") + "";
-					System.out.println("grain " + grain);
-					balsalevy.setGrain(grain);
-					levyt.add(balsalevy);
-				}
-				request.setAttribute("balsat", levyt);
-				resultset.close();
-				statement.close();
-				conn.close();
-
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			} finally {
-				try {
-					if (conn != null) {
-						conn.close();
-					}
-				} catch (SQLException ex) {
-					System.out.println(ex.getMessage());
-				}
-			}
-			//request.setAttribute("balsat", levyt);
+			ArrayList<Balsalevy> balsat = new ArrayList<Balsalevy>();
+			BalsalevyDAO dao = new BalsalevyDAO();
+			balsat = dao.haeBalsat();
+			request.setAttribute("balsat", balsat);
 
 			// forward the request to the index.jsp page
 			request.getRequestDispatcher("jukkaindex.jsp").forward(request, response);
@@ -195,6 +149,11 @@ public class JukkaController extends HttpServlet {
 			String id = request.getParameter("deleteid");
 			System.out.println("DELETE CASE " + id);
 
+			request.setAttribute("thickness", "");
+			request.setAttribute("length", "");
+			request.setAttribute("width", "");
+			request.setAttribute("weight", "");
+			
 			Connection conn = null;
 			try {
 
