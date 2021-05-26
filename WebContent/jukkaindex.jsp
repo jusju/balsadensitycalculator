@@ -183,6 +183,7 @@ balsat = dao.haeBalsat();
 <tr>
 <td>ID</td>
 <td>tiheys</td>
+<td>paino</td>
 <td>grain</td>
 <td>paksuus</td>
 <td>leveys</td>
@@ -197,6 +198,7 @@ for(int i=0; i < balsat.size(); i++) {
 	Balsalevy balsalevy = (Balsalevy)balsat.get(i);
 	out.println("<td>" + balsalevy.getId() + "</td>");
 	out.println("<td>" + desimaalit.format(balsalevy.getTiheys()) + "</td>");
+	out.println("<td>" + desimaalit.format(balsalevy.getPaino()) + "</td>");
 	out.println("<td>" + balsalevy.getGrain() + "</td>");
 	out.println("<td>" + desimaalit.format(balsalevy.getPaksuus()) + "</td>");
 	out.println("<td>" + desimaalit.format(balsalevy.getLeveys()) + "</td>");
