@@ -154,6 +154,19 @@
 	</tr>	
 </form>
 </table>
+<hr>
+Käyttäjiä tähän mennessä: 
+<p id="hits"></p>
+<script>
+	let hitamount = 0;
+	console.log("JUKKA");
+	fetch('http://localhost:8080/balsalaskin/HitsServlet')
+  	.then(response => response.json())
+  	.then(data => document.getElementById("hits").innerHTML = data.hits);
+	
+
+	document.getElementById("hits").innerHTML = hitamount;
+</script>
 
 
 </body>
